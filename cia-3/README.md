@@ -2,6 +2,8 @@
 
 An interactive web application built with Streamlit and Machine Learning to predict Air Quality Index (AQI) levels, explore global historical pollution trends, and evaluate regression model performance.
 
+**Live Application:** [Air Quality Forecaster on Streamlit Cloud](https://mca-ml-2547242-air-quality-forecaster.streamlit.app/)
+
 ## Features
 
 * **Real-Time AQI Predictor:** Interactive inputs for meteorological conditions and pollutant metrics (PM2.5, PM10, NO2, SO2, CO, O3) to generate instant AQI forecasts and gauge visualizations.
