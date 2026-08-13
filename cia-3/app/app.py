@@ -234,7 +234,7 @@ if page == "Real-Time AQI Predictor":
                         }
                     ))
                     fig.update_layout(height=380, margin=dict(l=30, r=30, t=60, b=20))
-                    st.plotly_chart(fig, use_container_width=True)
+                    st.plotly_chart(fig, width="stretch")
 
             except Exception as e:
                 st.error(f"Error making prediction: {e}")
@@ -264,7 +264,7 @@ elif page == "Trend and Location Analytics":
             title=f"AQI Trend for {selected_location}",
             markers=True
         )
-        st.plotly_chart(fig_trend, use_container_width=True)
+        st.plotly_chart(fig_trend, width="stretch")
 
         st.divider()
 
@@ -291,7 +291,7 @@ elif page == "Trend and Location Analytics":
                     color='Pollutant',
                     title=f"Average Pollutant Concentrations in {selected_location}"
                 )
-                st.plotly_chart(fig_pollutants, use_container_width=True)
+                st.plotly_chart(fig_pollutants, width="stretch")
             else:
                 st.info("Pollutant breakdown columns unavailable.")
 
@@ -309,7 +309,7 @@ elif page == "Trend and Location Analytics":
                     color_continuous_scale="Reds",
                     title=f"Top 15 Highest Average AQI Locations ({loc_col})"
                 )
-                st.plotly_chart(fig_city_comp, use_container_width=True)
+                st.plotly_chart(fig_city_comp, width="stretch")
             else:
                 st.info("Location column not present for comparison.")
 
@@ -327,11 +327,10 @@ elif page == "Trend and Location Analytics":
                 locationmode="country names",
                 color="AQI",
                 color_continuous_scale="Viridis",
-                title="Global Country-Wise Average AQI Distribution",
-                projection="natural earth"
+                title="Global Country-wise Average AQI"
             )
             fig_map.update_layout(height=520, margin=dict(l=10, r=10, t=40, b=10))
-            st.plotly_chart(fig_map, use_container_width=True)
+            st.plotly_chart(fig_map, width="stretch")
         elif 'Latitude' in df.columns and 'Longitude' in df.columns:
             map_cols = [c for c in ['City', 'Country'] if c in df.columns]
             if map_cols:
@@ -353,7 +352,7 @@ elif page == "Trend and Location Analytics":
             )
             fig_map.update_traces(marker=dict(opacity=0.7))
             fig_map.update_layout(height=500, margin=dict(l=10, r=10, t=40, b=10))
-            st.plotly_chart(fig_map, use_container_width=True)
+            st.plotly_chart(fig_map, width="stretch")
 
 # Render model validation metrics and scatter plot
 elif page == "Model Evaluation":
@@ -435,7 +434,7 @@ elif page == "Model Evaluation":
                 )
             )
             fig_scatter.update_layout(height=500)
-            st.plotly_chart(fig_scatter, use_container_width=True)
+            st.plotly_chart(fig_scatter, width="stretch")
 
             # Compute regression evaluation metrics
             mae = np.mean(np.abs(y_actual - y_pred))
